@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5.19</title>
+
+    <style>
+        .liked {
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <button @click="on_click">弹出</button> -->
+        <!-- 全局组件 -->
+        <alert_quanju></alert_quanju>
+        <!-- 局部组件 -->
+        <alert></alert>
+
+        <br>
+        <!-- 全局组件 -->
+        <!-- 点赞 -->
+        <like></like>
+    </div>
+
+    <!-- vue组件使用模板 -->
+    <!-- 点赞模板 -->
+    <template id="component_like">
+        <button :class="{liked: liked}" @click="click_like">{{count}}</button>
+    </template>
+
+    <script src="../lib/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
