@@ -14,6 +14,8 @@
 </head>
 <body>
     <div id="app">
+        <!-- 组件参数处理 -->
+
         <!-- 全局组件 -->
         <!-- <a href="/5.19.10/zhangsan">张三</a> -->
         <!-- 用户 -->
@@ -23,8 +25,13 @@
         <user username="李四"></user>
         
         <br><br>
+        <!-- 子级向父级传参 -->
         <balance></balance>
         
+        <br><br>
+        <!-- 同级组件传参 -->
+        <brother_input></brother_input>
+        <brother_output></brother_output>
     </div>
 
     <!-- vue组件使用模板 -->
@@ -40,6 +47,20 @@
     <!-- 显示余额 子级组件 -->
     <template id="com_show">
         <button @click="show">显示余额</button>
+    </template>
+
+    <!-- 同级组件传参 -->
+    <!-- 输入组件 -->
+    <template id="com_brother_input">
+        <div>
+            同级组件输入：<input type="text" v-model="brother_input" @keyup="inuptChange">
+        </div>
+    </template>
+    <!-- 输出组件 -->
+    <template id="com_brother_output">
+        <div>
+            同级组件输出:{{brother_output}}
+        </div>
     </template>
 
     <script src="../lib/vue.js"></script>

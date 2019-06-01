@@ -42,6 +42,44 @@ Vue.component('show', {
 });
 
 
+// 同级组件传递参数
+var vue_bor = new Vue();// 创建实例
+// 输入组件
+Vue.component('brother_input', {
+    template: '#com_brother_input',
+    data () {
+        return {
+            brother_input: ""
+        }
+    },
+    methods: {
+        // 同级输入组件 值改变
+        inuptChange () {
+            // 激活事件
+            vue_bor.$emit("brother_input_change", this.brother_input);
+        }
+    }
+});
+// 输出组件
+Vue.component("brother_output", {
+    template: '#com_brother_output',
+    data () {
+        return {
+            brother_output: ""
+        }
+    },
+    // 程序加载后执行
+    mounted () {
+        var me = this;
+        // 监听事件
+        vue_bor.$on("brother_input_change", function (data) {
+            me.brother_output = data;
+        });
+    }
+});
+
+
+
 var app = new Vue({
     el: "#app"
 });
