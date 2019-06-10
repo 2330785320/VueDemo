@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>5.19</title>
+
+    <style>
+        .card {
+            background: white;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 自定义指令 -->
+        <!-- 基本功能 -->
+        <div v-selected.gray="card1.selected" class="card">
+            <p>
+                这是测试文本选项 一
+            </p>
+            <button @click="card1.selected = !card1.selected">选中/取消</button>
+        </div>
+        
+        <!-- 修饰符 -->
+        <!-- 修饰符使用 .[]实现 可以使用多个 -->
+        <div v-selected.gray="card2.selected" class="card">
+            <p>
+                这是测试文本选项 二
+            </p>
+            <button @click="card2.selected = !card2.selected">选中/取消</button>
+        </div>
+
+        <!-- 传参数 -->
+        <!-- 参数使用 :[] 只能使用一个 -->
+        <div v-selected:canshu1.gray="card3.selected" class="card">
+            <p>
+                这是测试文本选项 三
+            </p>
+            <button @click="card3.selected = !card3.selected">选中/取消</button>
+        </div>
+    </div>
+
+    <script src="../lib/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
